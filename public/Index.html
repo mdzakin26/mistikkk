@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MISTIK - Bukan Magic, Cuma Mie dan Steak</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#d9c2ba",
+                    "surface-bright": "#f9f9f9",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e2e2e2",
+                    "secondary": "#675e44",
+                    "on-primary-container": "#98847d",
+                    "background": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "on-background": "#1a1c1c",
+                    "surface-container-low": "#f3f3f3",
+                    "primary": "#120704",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#6d644a",
+                    "tertiary": "#1c0200",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-secondary-fixed": "#211b07",
+                    "secondary-fixed-dim": "#d2c6a6",
+                    "surface-container": "#eeeeee",
+                    "tertiary-fixed": "#ffdbd1",
+                    "tertiary-container": "#420f03",
+                    "surface-dim": "#dadada",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#4e462e",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#4f4541",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#c4735d",
+                    "outline": "#807570",
+                    "on-primary-fixed": "#251914",
+                    "primary-container": "#2b1e19",
+                    "surface-tint": "#6c5b54",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "inverse-surface": "#2f3131",
+                    "inverse-primary": "#d9c2ba",
+                    "on-tertiary-fixed-variant": "#743422",
+                    "primary-fixed": "#f6ddd5",
+                    "outline-variant": "#d2c3bf",
+                    "tertiary-fixed-dim": "#ffb5a1",
+                    "secondary-container": "#efe2c1",
+                    "surface": "#f9f9f9",
+                    "on-primary-fixed-variant": "#53433d",
+                    "secondary-fixed": "#efe2c1",
+                    "on-tertiary-fixed": "#3b0901",
+                    "maroon-brand": "#6B2D1C",
+                    "beige-brand": "#F1E4C3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "lg": "48px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "body-md": ["Source Sans 3"],
+                    "body-lg": ["Source Sans 3"],
+                    "label-lg": ["Source Sans 3"],
+                    "label-sm": ["Source Sans 3"],
+                    "display-lg-mobile": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-shadow-subtle {
+            text-shadow: 0 2px 4px rgba(43, 30, 25, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, transparent 0%, #f9f9f9 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-primary font-body-md overflow-x-hidden">
+<!-- Navbar -->
+<nav class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+<div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto">
+<div class="flex items-center">
+<img alt="MISTIK Logo" class="h-10 w-auto" src="data:image/png;base64,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"/>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" href="#menu">Menu</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" href="#story">Cerita Kami</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors" href="https://instagram.com/mistikkk77" target="_blank">Instagram</a>
+</div>
+<a class="bg-maroon-brand text-beige-brand font-label-lg text-label-lg px-gutter py-3 rounded-lg hover:opacity-90 active:scale-95 transition-all shadow-md" href="#order">
+                Pesan Sekarang
+            </a>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative overflow-hidden pt-xl pb-lg md:py-xl">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 items-center gap-xl">
+<div class="z-10 text-center md:text-left order-2 md:order-1">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-md leading-tight">
+                    Bukan Magic, <br class="hidden md:block"/> <span class="text-maroon-brand">Cuma Mie dan Steak!</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-lg mx-auto md:mx-0">
+                    Nikmati sensasi kemewahan fusion antara mie premium yang kenyal dengan potongan steak juicy dalam kemasan takeaway yang elegan. Kelezatan bintang lima, di mana pun Anda berada.
+                </p>
+<div class="flex flex-col sm:flex-row gap-md justify-center md:justify-start">
+<a class="bg-primary text-on-primary font-label-lg text-label-lg px-xl py-4 rounded-lg hover:bg-primary-container transition-all flex items-center justify-center gap-xs" href="#menu">
+                        Lihat Menu <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="border-2 border-primary text-primary font-label-lg text-label-lg px-xl py-4 rounded-lg hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center" href="#order">
+                        Pesan Sekarang
+                    </a>
+</div>
+</div>
+<div class="relative order-1 md:order-2 flex justify-center items-center">
+<div class="absolute inset-0 bg-secondary-container/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+<img alt="MISTIK Hero Fusion" class="rounded-2xl shadow-2xl transform hover:scale-[1.02] transition-transform duration-500 w-full object-cover aspect-[4/3] md:aspect-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo8uLVb7tcKzGfCSF-ra5hDFeoo-3qV9HMkiCDVXjZ0ZsytLwgS6EY2Jlpwwo1Dx-h2Rc1XLjpW7u5Db7-P1OpRu7OAm23K85F1G0kuMG0gPW6LqnVB5UQpd-H9LA7BOkm9BDhKP5kgsQhve8Tual5KIjb67j5dfc-A8IcW-zhgbtuk9T3Us_PdxpODuBG5JWa6NCRI00LxeApSKNpVAw8gnMg7d-OGqFo5rHAti6M-q-rIVag7ATB95DLcnrIJXaDzvdHgbFK2GHs"/>
+</div>
+</div>
+</header>
+<!-- Story Section -->
+<section class="py-xl bg-surface-container-low" id="story">
+<div class="max-w-4xl mx-auto px-gutter text-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-md">Keajaiban di Balik MISTIK</h2>
+<div class="w-20 h-1 bg-maroon-brand mx-auto mb-lg"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                MISTIK lahir dari keinginan untuk menghadirkan pengalaman kuliner yang tidak biasa. Kami percaya bahwa perpaduan antara kehangatan mie yang autentik dan kemewahan steak yang dipanggang sempurna adalah sebuah "keajaiban" rasa yang harus dinikmati semua orang. Bukan trik sulap, melainkan dedikasi kami pada bahan premium dan teknik memasak yang presisi dalam setiap kotak yang kami sajikan.
+            </p>
+</div>
+</section>
+<!-- Menu Showcase -->
+<section class="py-xl bg-surface" id="menu">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-end mb-xl">
+<div>
+<span class="text-maroon-brand font-label-lg uppercase tracking-widest mb-xs block">Signature Series</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Menu Fusion Terfavorit</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<!-- Item 1 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl aspect-square mb-md shadow-md">
+<img alt="Mie Brutt" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa4WaqsyxAojisO3shyvadJ_1kT7tODYv05VEbh-3jj0tllShepUF_IBP86WwAoxyf9fFn5aFwMyj-L6YBFDITXKpuylgk2i4grqWIB7QvWrIkX-rN7bghaEaSW9m7bd0_SQwlFKVpYzNbfXXiqwpqzdk-Er2ABO7dr_NXjDuT4g4GGppHAsJoqNQAxjeF74Me6wGfNlXFQLfIbBlG61KTaMOUXQqPoD8QqJkIjkFhWSTebbhaJAlX2J0-er96FFgN6qfV1fstL2Uk"/>
+<div class="absolute top-4 right-4 bg-maroon-brand text-white px-3 py-1 rounded-full font-label-sm">Hot &amp; Spicy</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Mie Brutt</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Perpaduan mie pedas dengan irisan steak premium yang juicy, menciptakan harmoni rasa yang berani dan memanjakan lidah.</p>
+<div class="flex flex-wrap items-center gap-md">
+<a class="flex items-center gap-xs text-[#25D366] font-semibold hover:opacity-80 transition-opacity" href="https://wa.me/6281361652579" target="_blank">
+<span class="material-symbols-outlined text-sm">chat</span>
+<span>WhatsApp</span>
+</a>
+<a class="flex items-center gap-xs text-[#EE4D2D] font-semibold hover:opacity-80 transition-opacity" href="https://shopee.co.id/universal-link/now-food/shop/22725978?deep_and_deferred=1&shareChannel=whatsapp" target="_blank">
+<span class="material-symbols-outlined text-sm">delivery_dining</span>
+<span>ShopeeFood</span>
+</a>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-2xl aspect-square mb-md shadow-md">
+<img alt="Mie Pepper" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj2h7RpvVISpF3gUqET3d3sFrGrN7qWG69gkvGsLVrcoeexNMg3WGYqUuN1DrcIJdNg00tSxFctXLQURf7lkq_7Fb91Q_AvDkuHWztzuLBQNhNfnyYY4Xb8bvWJNz7npLhDUMfwraEGkOVcrD6udO6El2fTfE1kShSx8WkCCe5ip8JKgmnuGhPjFRy2MD-bpeKXIalWwNrCWhc42kZxfsGdfrR5ZwVI9esEKjq2Mi4sLmuqevK5pvYhsJQEIW1_kYzAQPTaq--BCGn"/>
+<div class="absolute top-4 right-4 bg-secondary-container text-primary px-3 py-1 rounded-full font-label-sm">Savory Pepper</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Mie Pepper</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Mie gurih dengan saus lada hitam khas dan steak panggang yang empuk. Pilihan sempurna untuk pecinta rasa klasik yang elegan.</p>
+<div class="flex flex-wrap items-center gap-md">
+<a class="flex items-center gap-xs text-[#25D366] font-semibold hover:opacity-80 transition-opacity" href="https://wa.me/6281361652579" target="_blank">
+<span class="material-symbols-outlined text-sm">chat</span>
+<span>WhatsApp</span>
+</a>
+<a class="flex items-center gap-xs text-[#EE4D2D] font-semibold hover:opacity-80 transition-opacity" href="https://shopee.co.id/universal-link/now-food/shop/22725978?deep_and_deferred=1&shareChannel=whatsapp" target="_blank">
+<span class="material-symbols-outlined text-sm">delivery_dining</span>
+<span>ShopeeFood</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-xl bg-surface-container-highest">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Testi Bestii</h2>
+<p class="font-label-lg text-on-surface-variant">Apa kata mereka yang sudah merasakan "magic" kami?</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md mb-xl">
+<div class="bg-surface p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex gap-xs text-maroon-brand mb-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md italic text-on-surface mb-lg">"Gak nyangka mie sama steak bisa nyambung bgt gini! Porsinya ngenyangin, dagingnya beneran premium."</p>
+<p class="font-label-lg font-bold text-primary">— Sarah, Jakarta</p>
+</div>
+<div class="bg-surface p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex gap-xs text-maroon-brand mb-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md italic text-on-surface mb-lg">"Packaging-nya juara, berasa makan di restoran bintang 5 padahal order takeaway. Mie Pepper-nya wajib coba!"</p>
+<p class="font-label-lg font-bold text-primary">— Rian, Foodie</p>
+</div>
+<div class="bg-surface p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex gap-xs text-maroon-brand mb-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md italic text-on-surface mb-lg">"Mie Brutt pedesnya nampol tapi tetep bisa dinikmati. Daging steak-nya gak pelit sama sekali."</p>
+<p class="font-label-lg font-bold text-primary">— Anita, Pekerja Kantoran</p>
+</div>
+</div>
+<!-- Form Testimoni -->
+<div class="mt-xl max-w-2xl mx-auto">
+<div class="bg-surface rounded-2xl shadow-sm border border-outline-variant p-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs text-center">Bagikan Pengalamanmu</h3>
+<p class="font-body-md text-on-surface-variant text-center mb-lg">Sudah coba MISTIK? Ceritain di sini!</p>
+
+<!-- Alert sukses (tersembunyi by default) -->
+<div id="testi-success" class="hidden mb-md bg-green-50 border border-green-200 text-green-800 rounded-lg px-md py-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-green-600">check_circle</span>
+<span class="font-label-lg">Testimoni kamu berhasil dikirim. Terima kasih!</span>
+</div>
+
+<!-- Alert error (tersembunyi by default) -->
+<div id="testi-error" class="hidden mb-md bg-red-50 border border-red-200 text-red-800 rounded-lg px-md py-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-red-600">error</span>
+<span id="testi-error-msg" class="font-label-lg">Terjadi kesalahan. Coba lagi.</span>
+</div>
+
+<form id="testi-form" novalidate>
+<!-- Nama Google -->
+<div class="mb-md">
+<label class="block font-label-lg text-primary mb-xs" for="testi-name">
+Nama (sesuai akun Google) <span class="text-error">*</span>
+</label>
+<input
+id="testi-name"
+type="text"
+placeholder="Contoh: Budi Santoso"
+maxlength="60"
+class="w-full border border-outline rounded-lg px-md py-3 font-body-md text-on-surface bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-maroon-brand focus:border-transparent placeholder:text-on-surface-variant/50 transition"
+/>
+<p id="testi-name-err" class="hidden mt-xs font-label-sm text-error">Nama wajib diisi.</p>
+</div>
+
+<!-- Rating bintang -->
+<div class="mb-md">
+<label class="block font-label-lg text-primary mb-xs">Rating <span class="text-error">*</span></label>
+<div id="star-rating" class="flex gap-xs" role="radiogroup" aria-label="Rating bintang">
+<button type="button" data-value="1" aria-label="1 bintang" class="star-btn material-symbols-outlined text-3xl text-outline-variant hover:text-maroon-brand transition-colors focus:outline-none" style="font-variation-settings: 'FILL' 0;">star</button>
+<button type="button" data-value="2" aria-label="2 bintang" class="star-btn material-symbols-outlined text-3xl text-outline-variant hover:text-maroon-brand transition-colors focus:outline-none" style="font-variation-settings: 'FILL' 0;">star</button>
+<button type="button" data-value="3" aria-label="3 bintang" class="star-btn material-symbols-outlined text-3xl text-outline-variant hover:text-maroon-brand transition-colors focus:outline-none" style="font-variation-settings: 'FILL' 0;">star</button>
+<button type="button" data-value="4" aria-label="4 bintang" class="star-btn material-symbols-outlined text-3xl text-outline-variant hover:text-maroon-brand transition-colors focus:outline-none" style="font-variation-settings: 'FILL' 0;">star</button>
+<button type="button" data-value="5" aria-label="5 bintang" class="star-btn material-symbols-outlined text-3xl text-outline-variant hover:text-maroon-brand transition-colors focus:outline-none" style="font-variation-settings: 'FILL' 0;">star</button>
+</div>
+<input type="hidden" id="testi-rating" value="0" />
+<p id="testi-rating-err" class="hidden mt-xs font-label-sm text-error">Pilih rating terlebih dahulu.</p>
+</div>
+
+<!-- Komentar -->
+<div class="mb-lg">
+<label class="block font-label-lg text-primary mb-xs" for="testi-comment">
+Komentar <span class="text-error">*</span>
+</label>
+<textarea
+id="testi-comment"
+rows="3"
+placeholder="Ceritakan pengalamanmu makan MISTIK..."
+maxlength="300"
+class="w-full border border-outline rounded-lg px-md py-3 font-body-md text-on-surface bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-maroon-brand focus:border-transparent placeholder:text-on-surface-variant/50 transition resize-none"
+></textarea>
+<div class="flex justify-between mt-xs">
+<p id="testi-comment-err" class="hidden font-label-sm text-error">Komentar wajib diisi.</p>
+<p class="font-label-sm text-on-surface-variant ml-auto"><span id="char-count">0</span>/300</p>
+</div>
+</div>
+
+<!-- Submit -->
+<button
+type="submit"
+id="testi-submit"
+class="w-full bg-maroon-brand text-beige-brand font-label-lg py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-xs disabled:opacity-60 disabled:cursor-not-allowed"
+>
+<span class="material-symbols-outlined">send</span>
+Kirim Testimoni
+</button>
+</form>
+</div>
+</div>
+
+<!-- Instagram Feed Placeholder -->
+<div class="mt-lg text-center">
+<a class="inline-flex items-center gap-sm bg-primary-container text-white px-lg py-4 rounded-full hover:bg-primary transition-all" href="https://instagram.com/mistikkk77" target="_blank">
+<span class="material-symbols-outlined">camera_alt</span>
+<span class="font-label-lg">Ikuti Kami @mistikkk77</span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- CTA Section: Siap Merasakan Keajaiban? -->
+<section class="py-xl bg-primary text-on-primary" id="order">
+<div class="max-w-container-max mx-auto px-gutter text-center">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-md">Siap Merasakan Keajaiban?</h2>
+<p class="font-body-lg text-body-lg opacity-90 mb-lg max-w-2xl mx-auto">
+Pesan sekarang dan rasakan kemewahan fusion MISTIK langsung di depan pintu rumah Anda.
+</p>
+<div class="flex flex-col sm:flex-row justify-center items-center gap-md flex-wrap">
+<a class="w-full sm:w-auto flex items-center justify-center gap-xs bg-[#25D366] text-white px-lg py-4 rounded-lg font-label-lg hover:brightness-110 active:scale-95 transition-all shadow-lg" href="https://wa.me/6281361652579" target="_blank">
+<span class="material-symbols-outlined text-xl">chat</span>
+<span>WhatsApp</span>
+</a>
+<a class="w-full sm:w-auto flex items-center justify-center gap-xs bg-[#EE4D2D] text-white px-lg py-4 rounded-lg font-label-lg hover:brightness-110 active:scale-95 transition-all shadow-lg" href="https://shopee.co.id/universal-link/now-food/shop/22725978?deep_and_deferred=1&shareChannel=whatsapp" target="_blank">
+<span class="material-symbols-outlined text-xl">delivery_dining</span>
+<span>ShopeeFood</span>
+</a>
+<a class="w-full sm:w-auto flex items-center justify-center gap-xs bg-maroon-brand text-beige-brand px-lg py-4 rounded-lg font-label-lg hover:brightness-110 active:scale-95 transition-all shadow-lg" href="https://instagram.com/mistikkk77" target="_blank">
+<span class="material-symbols-outlined text-xl">send</span>
+<span>Instagram DM</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low text-on-surface">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md px-gutter py-xl max-w-container-max mx-auto items-start">
+<div class="space-y-md">
+<img alt="MISTIK Logo" class="h-10 w-auto" src="data:image/png;base64,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"/>
+<p class="font-body-md text-on-surface-variant max-w-xs">
+                    MISTIK Fusion menghadirkan pengalaman makan mie dan steak premium dengan kemasan yang praktis dan berkelas.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<h4 class="font-label-lg text-primary uppercase tracking-wider mb-md">Navigasi</h4>
+<ul class="space-y-sm">
+<li><a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#menu">Menu</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#story">Cerita Kami</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#order">Pesan</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-lg text-primary uppercase tracking-wider mb-md">Bantuan</h4>
+<ul class="space-y-sm">
+<li><a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">FAQs</a></li>
+</ul>
+</div>
+</div>
+<div class="space-y-md">
+<h4 class="font-label-lg text-primary uppercase tracking-wider">Social Media</h4>
+<div class="flex gap-md">
+<a class="w-10 h-10 bg-primary-container text-white rounded-full flex items-center justify-center hover:bg-maroon-brand transition-colors" href="#">
+<span class="material-symbols-outlined">camera_alt</span>
+</a>
+<a class="w-10 h-10 bg-primary-container text-white rounded-full flex items-center justify-center hover:bg-maroon-brand transition-colors" href="#">
+<span class="material-symbols-outlined">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 bg-primary-container text-white rounded-full flex items-center justify-center hover:bg-maroon-brand transition-colors" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant py-md text-center">
+<p class="font-label-sm text-on-surface-variant">
+                © 2024 MISTIK Fusion. Bukan Magic, Cuma Mie dan Steak. All rights reserved.
+            </p>
+</div>
+</footer>
+<script type="module">
+        // Simple micro-interaction for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Atmospheric fade-in effect on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // ─── Testimoni Form ───────────────────────────────────────────────
+
+        // Star rating interactivity
+        const starBtns = document.querySelectorAll('.star-btn');
+        const ratingInput = document.getElementById('testi-rating');
+
+        function updateStars(value) {
+            starBtns.forEach(btn => {
+                const v = parseInt(btn.dataset.value);
+                btn.style.fontVariationSettings = v <= value
+                    ? "'FILL' 1"
+                    : "'FILL' 0";
+                btn.classList.toggle('text-maroon-brand', v <= value);
+                btn.classList.toggle('text-outline-variant', v > value);
+            });
+        }
+
+        starBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const val = parseInt(btn.dataset.value);
+                ratingInput.value = val;
+                updateStars(val);
+                document.getElementById('testi-rating-err').classList.add('hidden');
+            });
+            // Hover preview
+            btn.addEventListener('mouseenter', () => updateStars(parseInt(btn.dataset.value)));
+            btn.addEventListener('mouseleave', () => updateStars(parseInt(ratingInput.value)));
+        });
+
+        // Character counter
+        const commentEl = document.getElementById('testi-comment');
+        const charCount = document.getElementById('char-count');
+        commentEl.addEventListener('input', () => {
+            charCount.textContent = commentEl.value.length;
+        });
+
+        // Function untuk render bintang
+        function renderStars(count) {
+            let starsHtml = '';
+            for (let i = 0; i < count; i++) {
+                starsHtml += `<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>`;
+            }
+            return starsHtml;
+        }
+
+        // ─────────────────────────────────────────────────────────────────────────────
+        // Firebase Initialization (Firestore)
+        // ─────────────────────────────────────────────────────────────────────────────
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAFwdRMuBe_XyXPrZi3W0uscFFVJYgjDz8",
+            authDomain: "mistik-landing-page.firebaseapp.com",
+            projectId: "mistik-landing-page",
+            storageBucket: "mistik-landing-page.firebasestorage.app",
+            messagingSenderId: "126131555269",
+            appId: "1:126131555269:web:b32116cd27a709861459ac",
+            measurementId: "G-CLPBW7VNMT"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        console.log('[Firebase] Firestore initialized successfully!');
+
+        // Form submit
+        document.getElementById('testi-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const name    = document.getElementById('testi-name').value.trim();
+            const rating  = parseInt(ratingInput.value);
+            const comment = commentEl.value.trim();
+
+            // Reset errors
+            document.getElementById('testi-name-err').classList.add('hidden');
+            document.getElementById('testi-rating-err').classList.add('hidden');
+            document.getElementById('testi-comment-err').classList.add('hidden');
+            document.getElementById('testi-success').classList.add('hidden');
+            document.getElementById('testi-error').classList.add('hidden');
+
+            // Validate
+            let valid = true;
+            if (!name) {
+                document.getElementById('testi-name-err').classList.remove('hidden');
+                valid = false;
+            }
+            if (!rating || rating < 1) {
+                document.getElementById('testi-rating-err').classList.remove('hidden');
+                valid = false;
+            }
+            if (!comment) {
+                document.getElementById('testi-comment-err').classList.remove('hidden');
+                valid = false;
+            }
+            if (!valid) return;
+
+            // Payload — siap dikirim ke Firebase Firestore
+            const payload = {
+                name,
+                rating,
+                comment,
+                createdAt: new Date().toISOString(),
+                // TODO: tambahkan uid dari Firebase Auth jika sudah diintegrasikan
+            };
+
+            const submitBtn = document.getElementById('testi-submit');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Mengirim...';
+
+            try {
+                // ── Kirim ke Firebase Firestore ──────────────────────────────
+                await addDoc(collection(db, "testimonials"), payload);
+                console.log('[Testimoni] Berhasil disimpan ke Firebase:', payload);
+
+                // ── Tambah testimoni baru ke bagian "Testi Bestii" ──────────
+                const testiGrid = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-3');
+                if (testiGrid) {
+                    const newTestiCard = document.createElement('div');
+                    newTestiCard.className = 'bg-surface p-lg rounded-xl shadow-sm border border-outline-variant animate-in fade-in slide-in-from-bottom duration-500';
+                    newTestiCard.innerHTML = `
+                        <div class="flex gap-xs text-maroon-brand mb-md">
+                            ${renderStars(rating)}
+                        </div>
+                        <p class="font-body-md italic text-on-surface mb-lg">"${comment}"</p>
+                        <p class="font-label-lg font-bold text-primary">— ${name}</p>
+                    `;
+                    testiGrid.insertBefore(newTestiCard, testiGrid.firstChild);
+                }
+
+                // Reset form
+                document.getElementById('testi-form').reset();
+                ratingInput.value = 0;
+                updateStars(0);
+                charCount.textContent = '0';
+                document.getElementById('testi-success').classList.remove('hidden');
+
+                // Scroll ke bagian Testi Bestii
+                setTimeout(() => {
+                    document.querySelector('h2.font-headline-lg').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 1000);
+            } catch (err) {
+                console.error('[Testimoni] Gagal kirim:', err);
+                document.getElementById('testi-error-msg').textContent = 'Gagal mengirim testimoni. Coba lagi.';
+                document.getElementById('testi-error').classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span class="material-symbols-outlined">send</span> Kirim Testimoni';
+            }
+        });
+    </script>
+</body></html>
