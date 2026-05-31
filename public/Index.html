@@ -520,6 +520,61 @@ Pesan sekarang dan rasakan kemewahan fusion MISTIK langsung di depan pintu rumah
         const db = getFirestore(app);
         console.log('[Firebase] Firestore initialized successfully!');
 
+        // ─────────────────────────────────────────────────────────────────────────────
+        // Muat Testimonial dari Firebase saat halaman dimuat
+        // ─────────────────────────────────────────────────────────────────────────────
+        async function loadTestimonials() {
+            console.log('[Testimoni] Starting to load testimonials...');
+            try {
+                const testiGrid = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-3');
+                if (!testiGrid) {
+                    console.warn('[Testimoni] Tidak menemukan grid untuk testimonial');
+                    return;
+                }
+                console.log('[Testimoni] Grid ditemukan, fetching data...');
+
+                // Query: ambil semua testimonial, urutkan dari terbaru, batasi 50
+                const q = query(
+                    collection(db, "testimonials"),
+                    orderBy("createdAt", "desc"),
+                    limit(50)
+                );
+
+                const snapshot = await getDocs(q);
+                console.log(`[Testimoni] ✅ Berhasil load ${snapshot.size} testimonials dari Firebase`);
+
+                if (snapshot.size === 0) {
+                    console.log('[Testimoni] ℹ️ Belum ada testimonial di database');
+                    return;
+                }
+
+                // Render setiap testimonial
+                snapshot.forEach((doc, index) => {
+                    const data = doc.data();
+                    console.log(`[Testimoni] Rendering testimonial ${index + 1}:`, data.name);
+                    const newTestiCard = document.createElement('div');
+                    newTestiCard.className = 'bg-surface p-lg rounded-xl shadow-sm border border-outline-variant';
+                    newTestiCard.innerHTML = `
+                        <div class="flex gap-xs text-maroon-brand mb-md">
+                            ${renderStars(data.rating || 0)}
+                        </div>
+                        <p class="font-body-md italic text-on-surface mb-lg">"${data.comment}"</p>
+                        <p class="font-label-lg font-bold text-primary">— ${data.name}</p>
+                    `;
+                    testiGrid.appendChild(newTestiCard);
+                });
+            } catch (err) {
+                console.error('[Testimoni] ❌ GAGAL load dari Firebase:');
+                console.error('Error code:', err.code);
+                console.error('Error message:', err.message);
+                console.error('Full error:', err);
+            }
+        }
+
+        // Load testimonial saat halaman pertama kali dimuat
+        console.log('[Firebase] Calling loadTestimonials()...');
+        loadTestimonials();
+
         // Form submit
         document.getElementById('testi-form').addEventListener('submit', async function (e) {
             e.preventDefault();
